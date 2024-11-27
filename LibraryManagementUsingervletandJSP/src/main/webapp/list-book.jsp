@@ -37,7 +37,7 @@ import="java.util.ArrayList" %>
         <tbody>
           <c:forEach var="book" items="${Books}">
             <tr>
-              <td><c:out value="${book.getId()}" /></td>
+              <td><c:out value="${book.getId()"} /></td>
               <td><c:out value="${book.getBookName()}" /></td>
               <td><c:out value="${book.getAuthorName()}" /></td>
               <td><c:out value="${book.getIsbn()}" /></td>

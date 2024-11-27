@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbUtil {
-	
 	private String url = "http://localhost:8080/LibraryManagementUsingServletJsp/";
 	private String username = "local_library_management";
 	private String password = "local_library_management";

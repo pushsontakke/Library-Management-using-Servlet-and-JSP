@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.techdenovo.papps</groupId>
-  <artifactId>LibraryManagementUsingServletJsp</artifactId>
+  <artifactId>LibraryManagementUsingervletandJSP</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>LibraryManagementUsingServletJsp Maven Webapp</name>
+  <name>LibraryManagementUsingervletandJSP Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -27,6 +27,7 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
       <artifactId>javax.servlet.jsp-api</artifactId>
@@ -36,12 +37,13 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <build>
-    <finalName>LibraryManagementUsingServletJsp</finalName>
+    <finalName>LibraryManagementUsingervletandJSP</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

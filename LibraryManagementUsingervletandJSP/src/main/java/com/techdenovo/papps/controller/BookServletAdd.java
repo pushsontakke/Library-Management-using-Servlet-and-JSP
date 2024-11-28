@@ -12,15 +12,31 @@ import java.util.List;
 import com.techdenovo.papps.dao.BookDao;
 import com.techdenovo.papps.model.Book;
 
-@WebServlet(urlPatterns = "/books")
-public class BookServletList extends HttpServlet {
+@WebServlet(urlPatterns = "/book-add")
+public class BookServletAdd extends HttpServlet {
 	BookDao bookDao = new BookDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Book> books = null;
+		
+		
+//		System.out.println(books.size());
+		
+		req.getRequestDispatcher("form.jsp").forward(req, resp);
+		
+	}
+	
+	@Override 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Book book = new Book();
+		
+		if(!req.getParameter("book-name").isEmpty()) {
+			book.setBookName(req.getParameter("book-name"));
+			book.setAuthorName(req.getParameter("author-name"));
+			book.setIsbn(req.getParameter("isbn"));
+		}
 		try {
-			books = bookDao.allBooks();
+			bookDao.addBook(book);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -28,13 +44,6 @@ public class BookServletList extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		System.out.println(books.size());
-		req.setAttribute("books", books);
-		req.getRequestDispatcher("list-book.jsp").forward(req, resp);
-		
+		resp.sendRedirect("books");
 	}
-	
-//	@Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		
-//	}
 }

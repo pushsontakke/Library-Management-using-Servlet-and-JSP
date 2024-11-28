@@ -20,7 +20,7 @@
   <body>
     <div class="container">
       <h2 class="text-center">Book Details</h2>
-      <form>
+      <form action="book-add" method="post">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
             >Enter your book name:</label
@@ -53,10 +53,10 @@
           >
           <input
             type="text"
-            name="isbn-number"
+            name="isbn"
             placeholder="ISBN Number"
             class="form-control"
-            id="isbn-number"
+            id="isbn"
           />
         </div>
         <button type="submit" class="btn btn-primary">

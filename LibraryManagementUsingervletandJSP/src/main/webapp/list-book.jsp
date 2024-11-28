@@ -3,10 +3,9 @@ pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page
 import="com.techdenovo.papps.model.Book" %> 
-<td%@page
+<%@page
 import="java.util.ArrayList" %>
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -34,16 +33,20 @@ import="java.util.ArrayList" %>
             <th scope="col">ISBN No.</th>
           </tr>
         </thead>
-        <tbody>
-          <c:forEach var="book" items="${Books}">
-            <tr>
-              <td><c:out value="${book.getId()"} /></td>
-              <td><c:out value="${book.getBookName()}" /></td>
-              <td><c:out value="${book.getAuthorName()}" /></td>
-              <td><c:out value="${book.getIsbn()}" /></td>
-            </tr>
-          </c:forEach>
-        </tbody>
+      <tbody>
+         
+         
+        <%ArrayList<Book> std =
+                  (ArrayList<Book>)request.getAttribute("books");
+              for(Book book:std){%>
+                  <tr>
+                      <td><%=book.getId()%></td>
+                      <td><%=book.getBookName()%></td>
+                      <td><%=book.getAuthorName()%></td>
+                      <td><%=book.getIsbn()%></td>
+                  </tr>
+                  <%}%>
+                  </tbody>
       </table>
     </div>
   </body>

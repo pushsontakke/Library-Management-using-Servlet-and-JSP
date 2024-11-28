@@ -13,7 +13,7 @@ import com.techdenovo.papps.utils.DbUtil;
 public class BookDao {
 	DbUtil dbUtil = new DbUtil();
 	
-	public List<Book> allBooks(){
+	public List<Book> allBooks() throws ClassNotFoundException, SQLException {
 		List<Book> books = new ArrayList<>();
 		Connection conn = dbUtil.getDbConnection();
 		if(conn != null) {
@@ -26,7 +26,7 @@ public class BookDao {
 					book.setId(rs.getLong("ID"));
 					book.setBookName(rs.getString("BOOK_NAME"));
 					book.setAuthorName(rs.getString("AUTHOR_NAME"));
-					book.setIsbn(rs.getString("ISBN_NUMBER"));
+					book.setIsbn(rs.getString("ISBN"));
 					books.add(book);
 				}
 			} catch (SQLException e) {
@@ -36,10 +36,10 @@ public class BookDao {
 			return books;
 	}
 	
-	public int addBook(Book book) {
+	public int addBook(Book book) throws ClassNotFoundException, SQLException {
 		Connection conn = dbUtil.getDbConnection();
 			try {
-				String query = "INSERT INTO BOOKS (BOOK_NAME, AUTHOR_NAME, ISBN_NUMBER) VALUES(?, ?, ?);";
+				String query = "INSERT INTO BOOKS (BOOK_NAME, AUTHOR_NAME, ISBN) VALUES(?, ?, ?);";
 				PreparedStatement ps = conn.prepareStatement(query);
 				ps.setString(1, book.getBookName());
 				ps.setString(2, book.getAuthorName());

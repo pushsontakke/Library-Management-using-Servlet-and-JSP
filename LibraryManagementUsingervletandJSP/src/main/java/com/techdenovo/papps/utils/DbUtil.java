@@ -5,15 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbUtil {
-	private String url = "http://localhost:8080/LibraryManagementUsingServletJsp/";
-	private String username = "local_library_management";
-	private String password = "local_library_management";
+	private String url = "jdbc:mysql://localhost:3306/local_librarymanagement";
+	private String username = "root";
+	private String password = "Lokesh@12";
 	
-	public Connection getDbConnection(){
+	public Connection getDbConnection() throws ClassNotFoundException, SQLException{
 		Connection connection = null;
-		
+		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 		try {
-			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+//			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(url, username, password);
 			return connection;
 		} catch (SQLException e) {

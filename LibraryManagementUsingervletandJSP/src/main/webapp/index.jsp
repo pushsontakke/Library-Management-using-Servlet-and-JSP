@@ -21,10 +21,10 @@
     <div class="container text-center">
       <h1>Library Management</h1>
       <button type="button" class="btn btn-primary">
-        <a href="./list-book.jsp">List Books</a>
+        <a href="books">List Books</a>
       </button>
       <button type="button" class="btn btn-success">
-        <a href="./form.jsp">Add Book</a>
+        <a href="book-add">Add Book</a>
       </button>
       <button type="button" class="btn btn-danger">
         <a href="#">Delete Book</a>

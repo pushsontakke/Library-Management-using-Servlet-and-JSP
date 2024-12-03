@@ -10,6 +10,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    
   </head>
   <style>
     a {
@@ -25,12 +26,6 @@
       </button>
       <button type="button" class="btn btn-success">
         <a href="book-add">Add Book</a>
-      </button>
-      <button type="button" class="btn btn-danger">
-        <a href="#">Delete Book</a>
-      </button>
-      <button type="button" class="btn btn-warning">
-        <a href="#">Update Book</a>
       </button>
     </div>
   </body>

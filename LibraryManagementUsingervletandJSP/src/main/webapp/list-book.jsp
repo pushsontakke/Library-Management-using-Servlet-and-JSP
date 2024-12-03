@@ -17,6 +17,7 @@ import="java.util.ArrayList" %>
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
 
   <body>
@@ -31,6 +32,7 @@ import="java.util.ArrayList" %>
             <th scope="col">Title</th>
             <th scope="col">Author</th>
             <th scope="col">ISBN No.</th>
+            <th scope="col">Book Details</th>
           </tr>
         </thead>
       <tbody>
@@ -44,6 +46,7 @@ import="java.util.ArrayList" %>
                       <td><%=book.getBookName()%></td>
                       <td><%=book.getAuthorName()%></td>
                       <td><%=book.getIsbn()%></td>
+                      <td><a href="books-details?id=<%=book.getId()%>"><i class="bi bi-eye-fill"></i></a></td>
                   </tr>
                   <%}%>
                   </tbody>

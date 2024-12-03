@@ -14,7 +14,7 @@ public class BookDao {
 	DbUtil dbUtil = new DbUtil();
 	
 	public List<Book> allBooks() throws ClassNotFoundException, SQLException {
-		List<Book> books = new ArrayList<>();
+		List<Book> books = new ArrayList<Book>();
 		Connection conn = dbUtil.getDbConnection();
 		if(conn != null) {
 			try {
@@ -57,7 +57,23 @@ public class BookDao {
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
-		
-		
 	}
+	
+	public Book getBookDetail(long id) throws ClassNotFoundException, SQLException {
+		Connection conn = dbUtil.getDbConnection();
+		Book book = new Book();
+		if(conn != null) {
+				String query = "SELECT * FROM BOOKS WHERE id = ?";
+				PreparedStatement ps = conn.prepareStatement(query);
+				ps.setLong(1, id);
+				ResultSet rs = ps.executeQuery(); 
+				if(rs.next()) {
+					book.setId(rs.getLong("ID"));
+					book.setBookName(rs.getString("BOOK_NAME"));
+					book.setAuthorName(rs.getString("AUTHOR_NAME"));
+					book.setIsbn(rs.getString("ISBN"));
+				}
+			}
+		return book;
+		}
 }

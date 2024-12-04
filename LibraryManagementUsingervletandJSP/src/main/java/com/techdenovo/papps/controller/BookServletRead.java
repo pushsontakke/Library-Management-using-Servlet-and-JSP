@@ -16,10 +16,10 @@ import com.techdenovo.papps.model.Book;
 public class BookServletRead extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String Id = req.getParameter("id");
+		String id = req.getParameter("id");
 //		System.out.println(Id);
 		BookDao bookDao = new BookDao();
-		long bookId = Integer.parseInt(Id);
+		long bookId = Integer.parseInt(id);
 		Book book = null;
 		try {
 			book = bookDao.getBookDetail(bookId);
@@ -36,9 +36,9 @@ public class BookServletRead extends HttpServlet{
 	}
 	
 //	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-//		String Id = req.getParameter("delete-button");
+//		String id = req.getParameter("delete-button");
 ////		System.out.println(Id);
-//		long bookId = Integer.parseInt(Id);
+//		long bookId = Integer.parseInt(id);
 //		BookDao bookDao = new BookDao();
 //		
 //		try {

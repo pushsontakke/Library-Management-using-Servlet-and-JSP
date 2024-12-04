@@ -14,9 +14,9 @@ import com.techdenovo.papps.dao.BookDao;
 public class BookServletDelete extends HttpServlet {
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String Id = req.getParameter("delete-button");
+		String id = req.getParameter("delete-button");
 //		System.out.println(Id);
-		long bookId = Integer.parseInt(Id);
+		long bookId = Integer.parseInt(id);
 		BookDao bookDao = new BookDao();
 		
 		try {

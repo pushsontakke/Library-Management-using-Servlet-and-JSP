@@ -64,7 +64,7 @@
 			
 		</table>
 		
-		<form action="books-details" method="post">
+		<form action="delete-book" method="post">
 			<input type="hidden" name="delete-button" value="<%= book.getId()%>" />
 			<button type="submit" class="btn btn-danger">Delete Book</button>
 		</form>

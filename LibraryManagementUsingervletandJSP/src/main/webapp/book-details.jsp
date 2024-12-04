@@ -20,10 +20,10 @@
 <body>
 	<div class="container">
 		<table class="table caption-top table-bordered border-primary">
-			<caption>List of books</caption>
 			<%
 			Book book = (Book) request.getAttribute("book");
 			%>
+			<h2 class="text-center"><%= book.getBookName() %></h2>
 			<tr>
 				<td class="table-primary" scope="col">ID no.</td>
 				<td><%=book.getId()%></td>
@@ -57,13 +57,17 @@
 				<td>Robert Elliott</td>
 			</tr>
 
-
 			<tr>
 				<td class="table-primary" scope="col">Copyright</td>
-				<td>© 2005 by Ivor Horton</td>
+				<td> 2005 by Ivor Horton</td>
 			</tr>
 			
 		</table>
+		
+		<form action="books-details" method="post">
+			<input type="hidden" name="delete-button" value="<%= book.getId()%>" />
+			<button type="submit" class="btn btn-danger">Delete Book</button>
+		</form>
 	</div>
 </body>
 

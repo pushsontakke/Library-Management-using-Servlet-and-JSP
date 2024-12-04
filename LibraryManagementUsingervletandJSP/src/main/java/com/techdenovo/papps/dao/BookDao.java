@@ -76,4 +76,27 @@ public class BookDao {
 			}
 		return book;
 		}
+	
+	public boolean deleteBook(long id) throws ClassNotFoundException, SQLException {
+		Connection conn = dbUtil.getDbConnection();
+		boolean flag = false;
+		if(conn != null) {
+			String query = "DELETE FROM books WHERE id = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setLong(1, id);
+			int isBookDeleted = ps.executeUpdate();
+			if(isBookDeleted > 0) {
+				flag = true;
+			}
+		}
+		return flag;
+	}
+	
+	
+	
 }
+
+
+
+
+

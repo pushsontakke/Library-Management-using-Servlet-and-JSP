@@ -13,7 +13,7 @@ import com.techdenovo.papps.dao.BookDao;
 @WebServlet("/delete-book")
 public class BookServletDelete extends HttpServlet {
 	
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String id = req.getParameter("delete-button");
 //		System.out.println(Id);
 		long bookId = Integer.parseInt(id);
@@ -21,7 +21,7 @@ public class BookServletDelete extends HttpServlet {
 		
 		try {
 			if(bookDao.deleteBook(bookId)) {
-				resp.sendRedirect("/LibraryManagementUsingervletandJSP");
+				resp.sendRedirect("books");
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -33,10 +33,11 @@ public class BookDao {
 				throw new RuntimeException(e);
 			}
 		}
-			return books;
+		conn.close();
+		return books;
 	}
 	
-	public int addBook(Book book) throws ClassNotFoundException, SQLException {
+	public boolean addBook(Book book) throws ClassNotFoundException, SQLException {
 		Connection conn = dbUtil.getDbConnection();
 			try {
 				String query = "INSERT INTO BOOKS (BOOK_NAME, AUTHOR_NAME, ISBN) VALUES(?, ?, ?);";
@@ -46,19 +47,18 @@ public class BookDao {
 				ps.setString(3, book.getIsbn());
 				int isBookAdd = ps.executeUpdate();
 				
-				if(isBookAdd == 1) {
-					System.out.println("Book details added successfully.");
-				} else {
-					System.out.println("Fail to add book details.");
-				}
+//				if(isBookAdd == 1) {
+//					System.out.println("Book details added successfully.");
+//				} else {
+//					System.out.println("Fail to add book details.");
+//				}
 				
 				conn.close();
-				return isBookAdd;
+				return isBookAdd > 0;
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
 	}
-	
 	public Book getBookDetail(long id) throws ClassNotFoundException, SQLException {
 		Connection conn = dbUtil.getDbConnection();
 		Book book = new Book();
@@ -91,6 +91,22 @@ public class BookDao {
 		}
 		return flag;
 	}
+	
+	public boolean updateBookDetail(long id, String name, String author, String isbn) throws ClassNotFoundException, SQLException {
+		Connection conn = dbUtil.getDbConnection();
+		String query = "UPDATE books SET BOOK_NAME = ?, AUTHOR_NAME = ?, ISBN = ? WHERE ID = ?";
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setString(1, name);
+		ps.setString(2, author);
+		ps.setString(3, isbn);
+		ps.setLong(4, id);
+		
+		int isBookUpdated = ps.executeUpdate();
+		
+		conn.close();
+		return isBookUpdated > 0;
+	}
+	
 	
 	
 	

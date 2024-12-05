@@ -17,13 +17,22 @@
 	crossorigin="anonymous" />
 </head>
 
+<style>
+.form-btn {
+	display: flex;
+	justify-content: space-around;
+}
+</style>
+
 <body>
 	<div class="container">
 		<table class="table caption-top table-bordered border-primary">
 			<%
 			Book book = (Book) request.getAttribute("book");
 			%>
-			<h2 class="text-center"><%= book.getBookName() %></h2>
+			<h2 class="text-center">
+				<%=book.getBookName()%>
+			</h2>
 			<tr>
 				<td class="table-primary" scope="col">ID no.</td>
 				<td><%=book.getId()%></td>
@@ -59,15 +68,24 @@
 
 			<tr>
 				<td class="table-primary" scope="col">Copyright</td>
-				<td> 2005 by Ivor Horton</td>
+				<td>2005 by Ivor Horton</td>
 			</tr>
-			
+
 		</table>
-		
-		<form action="delete-book" method="post">
-			<input type="hidden" name="delete-button" value="<%= book.getId()%>" />
-			<button type="submit" class="btn btn-danger">Delete Book</button>
-		</form>
+
+		<div class="form-btn">
+			<form action="delete-book" method="post">
+				<input type="hidden" name="delete-button" value="<%=book.getId()%>" />
+				<button type="submit" class="btn btn-danger">Delete Book</button>
+			</form>
+			<form action="update-book" method="get">
+				<input type="hidden" name="update-button" value="<%=book.getId()%>" />
+				<button type="submit" class="btn btn-warning">Update Book</button>
+			</form>
+
+			<%-- <button type="submit" class="btn btn-danger"><a href="update-book?id=<%= book.getId() %> ">Update Book</a></button> --%>
+
+		</div>
 	</div>
 </body>
 

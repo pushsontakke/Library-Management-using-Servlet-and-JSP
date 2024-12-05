@@ -35,25 +35,6 @@ public class BookServletRead extends HttpServlet{
 		
 	}
 	
-//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-//		String id = req.getParameter("delete-button");
-////		System.out.println(Id);
-//		long bookId = Integer.parseInt(id);
-//		BookDao bookDao = new BookDao();
-//		
-//		try {
-//			if(bookDao.deleteBook(bookId)) {
-//				resp.sendRedirect("/LibraryManagementUsingervletandJSP");
-//			}
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//	}
 	
 }
 
